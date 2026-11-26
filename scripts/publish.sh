@@ -39,7 +39,7 @@ if [ "$(sha256sum "$tarball" | cut -d' ' -f1)" != "$checksum" ]; then
     echo "$tarball doesn't match SHA256.txt: not packaged" >&2
     exit 1
 fi
-tar xzf "$tarball" -C work
+tar --no-same-owner -xzf "$tarball" -C work # the build folder is on NFS (root squashed): no chown
 src="work/redis-$version"
 
 # As Ubuntu builds it: igbinary, lz4 and zstd (the php, json and igbinary serializers; zstd and lz4 compression).
