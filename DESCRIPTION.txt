@@ -1,0 +1,1 @@
+phpredis (the PHP redis extension), a newer release than Ubuntu's built for apt as php8.5-redis
